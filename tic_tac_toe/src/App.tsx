@@ -21,7 +21,7 @@ function App() {
 
     for (let i = 0; i < win.length; i++) {
       const [a, b, c] = win[i];
-      if (state[a] !== null && state[a] === state[b] && state[a] == state[c]) return true;
+      if (state[a] !== null && state[a] === state[b] && state[a] === state[c]) return true;
     }
 
     return false;

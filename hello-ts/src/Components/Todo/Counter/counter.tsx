@@ -1,9 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 
 const Counter: React.FC = (props) => {
 
     const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        console.log('Counter Mounted');
+
+        return function () {
+            console.log('Counter Unmounted');
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log('User updated the counter', count);
+
+        return () => {
+            console.log('Counter UseEffect Return', count);
+        }
+
+    }, [
+        count
+    ])
 
     const handleIncrement = () => {
         setCount(count + 1);
